@@ -1,7 +1,7 @@
 package com.controller;
 
 import com.constant.AlertMessage;
-import com.constant.URL;
+import com.constant.JspUri;
 import com.model.Member;
 import com.repository.MemberRepositoryImpl;
 import com.service.MemberServiceImpl;
@@ -36,7 +36,7 @@ public class LoginController extends HttpServlet {
         } else if (member.getPhoneNumber().equals(phoneNumber)) {
 
             createSession(req, member);
-            redirectMainView(resp);
+            redirectMainView(req, resp);
         }
     }
 
@@ -44,7 +44,7 @@ public class LoginController extends HttpServlet {
             throws ServletException, IOException {
 
         req.setAttribute(AlertMessage.ATTRIBUTE_NAME, AlertMessage.HAS_NOT_MEMBER);
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher(URL.LOGIN);
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher(JspUri.LOGIN);
         requestDispatcher.forward(req, resp);
     }
 
@@ -53,9 +53,9 @@ public class LoginController extends HttpServlet {
         session.setAttribute("memberName", member.getName());
     }
 
-    private void redirectMainView(HttpServletResponse resp)
+    private void redirectMainView(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
-        resp.sendRedirect("/index.jsp");
+        resp.sendRedirect(JspUri.MAIN);
     }
 }

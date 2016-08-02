@@ -57,14 +57,14 @@
                 <app:when test="${not empty sessionScope.memberName}">
                     <li><h4>${sessionScope.memberName} 님, 환영합니다.</h4></li>
                     <li>
-                        <form action="/Logout.do" method="post">
+                        <form action="${ServletUri.LOGOUT}" method="post">
                             <input class="submit" type="submit" value="로그아웃">
                         </form>
                     </li>
                 </app:when>
 
                 <app:otherwise>
-                    <li class="active"><a href=${URL.LOGIN}>로그인</a></li>
+                    <li class="active"><a href=${JspUri.LOGIN}>로그인</a></li>
                 </app:otherwise>
             </app:choose>
         </ul>
@@ -73,6 +73,12 @@
 
     <div>
         <table class="table table-striped">
+            <colgroup>
+                <col width="10%">
+                <col width="40%">
+                <col width="10%">
+                <col width="20%">
+            </colgroup>
             <thead>
             <tr>
                 <th>no.</th>
@@ -82,14 +88,14 @@
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${boardItems}" var="boardItem">
+            <app:forEach items="${boardItems}" var="boardItem">
                 <tr>
                     <td>${boardItem.seq}</td>
                     <td>${boardItem.title}</td>
                     <td>${boardItem.writer}</td>
                     <td>${boardItem.date}</td>
                 </tr>
-            </c:forEach>
+            </app:forEach>
             </tbody>
         </table>
 

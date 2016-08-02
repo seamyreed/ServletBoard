@@ -46,12 +46,12 @@
     <div class="header">
         <ul class="nav nav-pills pull-right">
             <li class="active"><a href="/">Home</a></li>
-            <li class="active"><a href=${URL.LOGIN}>로그인</a></li>
+            <li class="active"><a href=${JspUri.LOGIN}>로그인</a></li>
         </ul>
         <h3 class="text-muted">회원가입</h3>
     </div>
 
-    <form role="form" action="/SignUp.do" method="post">
+    <form role="form" action="${ServletUri.SIGN_UP}" method="post">
         <div class="form-group">
             <label for="inputUsername">이름</label>
             <input type="text" name="memberName" class="form-control" id="inputUsername"

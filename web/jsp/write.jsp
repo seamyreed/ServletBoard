@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="app" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="com.constant.*" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -29,14 +31,32 @@
     <![endif]-->
 </head>
 <body>
+<div class="container">
+    <div class="row">
+        <div class="span8 well" style="padding-bottom:0">
+            <form accept-charset="UTF-8" action="${ServletUri.WRITE_BOARD_ITEM}" method="POST">
+                <span>제목<span><br>
+                <span><input name="title" class="span7"/><span><br><br>
 
-<form role="form" action="/BoardWrite.do" method="post">
+                    <span>작성자<span><br>
+                    <app:choose>
+                        <app:when test="${not empty sessionScope.memberName}">
+                            <span><input name="writer" class="span7"
+                                         value="${sessionScope.memberName}"/><span><br><br>
+                        </app:when>
+                        <app:otherwise>
+                            <span><input name="writer" class="span7" value=""/><span><br><br>
+                        </app:otherwise>
 
-    <div class="input-group">
-        <textarea class="form-control custom-control" rows="5" style="resize:none"></textarea>
-        <span class="input-group-addon btn btn-primary">완료</span>
+                    </app:choose>
+                <span>내용<span><br>
+                <textarea class="span7" id="content" name="content"
+                          placeholder="여기에 써주세요" rows="15" cols="80"></textarea>
+                <button class="btn btn-info" type="submit">저장</button>
+            </form>
+        </div>
     </div>
-</form>
+</div>
 
 </body>
 </html>

@@ -1,9 +1,8 @@
 package com.controller;
 
 import com.constant.AlertMessage;
-import com.constant.URL;
+import com.constant.JspUri;
 import com.model.Member;
-import com.repository.MemberRepository;
 import com.repository.MemberRepositoryImpl;
 import com.service.MemberServiceImpl;
 
@@ -52,7 +51,7 @@ public class SignUpController extends HttpServlet {
             throws ServletException, IOException {
 
         req.setAttribute(AlertMessage.ATTRIBUTE_NAME, AlertMessage.SIGN_UP_DUPLICATED);
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher(URL.SIGN_UP);
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher(JspUri.SIGN_UP);
         requestDispatcher.forward(req, resp);
     }
 
@@ -60,7 +59,7 @@ public class SignUpController extends HttpServlet {
             throws ServletException, IOException {
 
         req.setAttribute(AlertMessage.ATTRIBUTE_NAME, AlertMessage.SIGN_UP_SUCCESS);
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher(URL.LOGIN);
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher(JspUri.LOGIN);
         requestDispatcher.forward(req, resp);
     }
 }
