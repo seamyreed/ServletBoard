@@ -3,7 +3,8 @@ package com.controller.member.action;
 import com.constant.AlertMessage;
 import com.controller.Action;
 import com.model.Member;
-import com.repository.MemberRepositoryImpl;
+import com.repository.MemberRepositoryImplLocal;
+import com.service.MemberService;
 import com.service.MemberServiceImpl;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +15,12 @@ import javax.servlet.http.HttpSession;
  * Created by hyojeongyoon on 2016. 8. 3..
  */
 public class LoginAction implements Action {
+    private MemberService memberService;
+
+    public LoginAction(MemberService memberService) {
+        this.memberService = memberService;
+    }
+
     @Override
     public String fromUri() {
         return "/member/login";
@@ -24,7 +31,6 @@ public class LoginAction implements Action {
         String memberName = request.getParameter("memberName");
         String phoneNumber = request.getParameter("phoneNumber");
 
-        MemberServiceImpl memberService = new MemberServiceImpl(MemberRepositoryImpl.getInstance());
         Member member = memberService.findByMemberName(memberName);
 
         if (member == null) {

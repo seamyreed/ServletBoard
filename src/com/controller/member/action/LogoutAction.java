@@ -14,7 +14,7 @@ public class LogoutAction implements Action {
 
     @Override
     public String fromUri() {
-        return "/member/login";
+        return "/member/logout";
     }
 
     @Override

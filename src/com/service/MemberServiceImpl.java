@@ -2,7 +2,6 @@ package com.service;
 
 import com.model.Member;
 import com.repository.MemberRepository;
-import com.repository.MemberRepositoryImpl;
 
 /**
  * Created by hyojeongyoon on 2016. 7. 31..

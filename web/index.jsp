@@ -57,14 +57,14 @@
                 <app:when test="${not empty sessionScope.memberName}">
                     <li><h4>${sessionScope.memberName} 님, 환영합니다.</h4></li>
                     <li>
-                        <form action="${ServletUri.LOGOUT}" method="post">
+                        <form action="/member/logout" method="post">
                             <input class="submit" type="submit" value="로그아웃">
                         </form>
                     </li>
                 </app:when>
 
                 <app:otherwise>
-                    <li class="active"><a href=${JspUri.LOGIN}>로그인</a></li>
+                    <li class="active"><a href="/jsp/login.jsp">로그인</a></li>
                 </app:otherwise>
             </app:choose>
         </ul>

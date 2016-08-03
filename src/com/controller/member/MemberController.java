@@ -27,9 +27,9 @@ public class MemberController extends HttpServlet {
 
         mActionCommand = new ActionCommand();
         mActionCommand
-                .addAction(new LoginAction())
-                .addAction(new LogoutAction())
-                .addAction(new SignUpAction(Injection.proviceMemberService()));
+                .addAction(new SignUpAction(Injection.provideMemberService()))
+                .addAction(new LoginAction(Injection.provideMemberService()))
+                .addAction(new LogoutAction());
     }
 
     @Override

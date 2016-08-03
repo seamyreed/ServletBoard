@@ -1,7 +1,7 @@
 package com;
 
 import com.repository.BoardRepositoryImplH2;
-import com.repository.MemberRepositoryImpl;
+import com.repository.MemberRepositoryImplH2;
 import com.service.BoardService;
 import com.service.BoardServiceImpl;
 import com.service.MemberService;
@@ -21,9 +21,9 @@ public class Injection {
         return sBoardService;
     }
 
-    public static MemberService proviceMemberService() {
+    public static MemberService provideMemberService() {
         if (sMemberService == null) {
-            sMemberService = new MemberServiceImpl(MemberRepositoryImpl.getInstance());
+            sMemberService = new MemberServiceImpl(MemberRepositoryImplH2.getInstance());
         }
         return sMemberService;
     }
