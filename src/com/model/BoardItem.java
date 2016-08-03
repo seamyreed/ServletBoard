@@ -6,7 +6,7 @@ package com.model;
 public class BoardItem {
     private int seq;
     private String title;
-    private String contents;
+    private String content;
     private String writer;
     private String date;
 
@@ -26,12 +26,12 @@ public class BoardItem {
         this.title = title;
     }
 
-    public String getContents() {
-        return contents;
+    public String getContent() {
+        return content;
     }
 
     public void setContent(String contents) {
-        this.contents = contents;
+        this.content = contents;
     }
 
     public String getWriter() {

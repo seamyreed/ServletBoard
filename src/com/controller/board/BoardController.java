@@ -2,7 +2,8 @@ package com.controller.board;
 
 import com.Injection;
 import com.controller.ActionCommand;
-import com.controller.board.action.*;
+import com.controller.board.action.ListAction;
+import com.controller.board.action.WriteAction;
 
 import java.io.IOException;
 

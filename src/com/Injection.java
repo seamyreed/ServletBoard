@@ -1,6 +1,6 @@
 package com;
 
-import com.repository.BoardRepositoryImpl;
+import com.repository.BoardRepositoryImplH2;
 import com.repository.MemberRepositoryImpl;
 import com.service.BoardService;
 import com.service.BoardServiceImpl;
@@ -16,7 +16,7 @@ public class Injection {
 
     public static BoardService provideBoardService() {
         if (sBoardService == null) {
-            sBoardService = new BoardServiceImpl(BoardRepositoryImpl.getInstance());
+            sBoardService = new BoardServiceImpl(BoardRepositoryImplH2.getInstance());
         }
         return sBoardService;
     }

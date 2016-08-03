@@ -11,18 +11,18 @@ import java.util.Map;
 /**
  * Created by hyojeongyoon on 2016. 7. 28..
  */
-public class BoardRepositoryImpl implements BoardRepository {
+public class BoardRepositoryImplLocal implements BoardRepository {
 
-    private static BoardRepositoryImpl sInstance;
+    private static BoardRepositoryImplLocal sInstance;
     private Map<Integer, BoardItem> boards;
 
-    private BoardRepositoryImpl() {
+    private BoardRepositoryImplLocal() {
         boards = new HashMap<Integer, BoardItem>();
     }
 
-    public static BoardRepositoryImpl getInstance() {
+    public static BoardRepositoryImplLocal getInstance() {
         if (sInstance == null) {
-            sInstance = new BoardRepositoryImpl();
+            sInstance = new BoardRepositoryImplLocal();
         }
 
         return sInstance;
