@@ -1,8 +1,10 @@
-package com.controller.board;
+package com.controller.member;
 
 import com.Injection;
 import com.controller.ActionCommand;
-import com.controller.board.action.*;
+import com.controller.member.action.LoginAction;
+import com.controller.member.action.LogoutAction;
+import com.controller.member.action.SignUpAction;
 
 import java.io.IOException;
 
@@ -16,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Created by hyojeongyoon on 2016. 7. 26..
  */
-public class BoardController extends HttpServlet {
+public class MemberController extends HttpServlet {
     private ActionCommand mActionCommand;
 
     @Override
@@ -25,8 +27,9 @@ public class BoardController extends HttpServlet {
 
         mActionCommand = new ActionCommand();
         mActionCommand
-                .addAction(new ListAction(Injection.provideBoardService()))
-                .addAction(new WriteAction(Injection.provideBoardService()));
+                .addAction(new LoginAction())
+                .addAction(new LogoutAction())
+                .addAction(new SignUpAction(Injection.proviceMemberService()));
     }
 
     @Override

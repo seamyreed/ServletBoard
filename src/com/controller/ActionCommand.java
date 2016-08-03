@@ -23,6 +23,12 @@ public class ActionCommand {
 
     public String execute(HttpServletRequest req, HttpServletResponse resp) {
         for (Action action : actions) {
+
+            if (action.fromUri() == null || action.fromUri().equals("")) {
+                String message = action.getClass().getSimpleName() + "'s fromUri is null";
+                throw new NullPointerException(message);
+            }
+
             if (action.fromUri().equals(req.getRequestURI())) {
                 return action.execute(req, resp);
             }

@@ -14,10 +14,12 @@ public class MemberServiceImpl implements MemberService {
         this.memberRepository = memberRepository;
     }
 
+    @Override
     public Member findByMemberName(String memberName) {
         return memberRepository.findByMemberName(memberName);
     }
 
+    @Override
     public void save(Member member) {
         memberRepository.save(member);
     }
