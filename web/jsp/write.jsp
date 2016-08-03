@@ -34,7 +34,7 @@
 <div class="container">
     <div class="row">
         <div class="span8 well" style="padding-bottom:0">
-            <form accept-charset="UTF-8" action="${ServletUri.WRITE_BOARD_ITEM}" method="POST">
+            <form accept-charset="UTF-8" action="/board/write" method="POST">
                 <span>제목<span><br>
                 <span><input name="title" class="span7"/><span><br><br>
 

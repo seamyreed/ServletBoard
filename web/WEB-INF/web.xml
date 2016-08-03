@@ -79,7 +79,7 @@
 
     <servlet>
         <servlet-name>BoardController</servlet-name>
-        <servlet-class>com.controller.BoardController</servlet-class>
+        <servlet-class>com.controller.board.BoardController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>BoardController</servlet-name>
